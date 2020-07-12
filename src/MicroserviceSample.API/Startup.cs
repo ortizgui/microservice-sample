@@ -1,8 +1,10 @@
 using System;
 using System.Reflection;
+using FluentValidation.AspNetCore;
 using Jaeger;
 using Jaeger.Samplers;
 using MediatR;
+using MicroserviceSample.Domain.Commands;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -38,6 +40,9 @@ namespace MicroserviceSample.API
 
             services.AddMediatR(assembly);
             services.AddScoped<IPersonExternalServices, PersonExternalServices>();
+            
+            services.AddMvc()
+                .AddFluentValidation(fv => fv.RegisterValidatorsFromAssembly(assembly));
 
             services.AddSingleton(serviceProvider =>
             {

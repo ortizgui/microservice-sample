@@ -7,6 +7,7 @@ using MicroserviceSample.Domain.Commands;
 using MicroserviceSample.Domain.Dtos;
 using MicroserviceSample.Domain.Entities;
 using MicroserviceSample.Domain.ExternalServices;
+using MicroserviceSample.Domain.Validations;
 
 namespace MicroserviceSample.Domain.Handler
 {
